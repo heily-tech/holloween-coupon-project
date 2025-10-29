@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Simple Coupon App</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; margin-top: 100px; }
+        button { padding: 10px 20px; font-size: 18px; cursor: pointer; }
+        .coupon { margin-top: 30px; font-size: 22px; color: #0078D7; }
+    </style>
+</head>
+<body>
+<h1> Simple Coupon 발급기</h1>
+<form th:action="@{/generate}" method="get">
+    <button type="submit">쿠폰 발급</button>
+</form>
+
+<div class="coupon" th:if="${couponCode}">
+    <p>발급된 쿠폰 번호: <b th:text="${couponCode}"></b></p>
+</div>
+
+<div style="margin-top:40px">
+    <a href="/count" target="_blank">현재 쿠폰 개수 확인하기</a>
+</div>
+
+</body>
+</html>
